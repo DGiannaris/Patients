@@ -5,16 +5,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class Patient {
 
+
+
     private int ID;
     private String Name;
     private String Disease;
     private String Address;
     private String tel;
     private String patronum;
-    private String AMKA;
+    private int AMKA;
 
 
-    public Patient(int ID, String name, String disease, String address, String tel, String patronum, String AMKA) {
+    public Patient(int ID, String name, String disease, String address, String tel, String patronum, int AMKA) {
         this.ID = ID;
         Name = name;
         Disease = disease;
@@ -26,6 +28,9 @@ public class Patient {
 
     public Patient() {
     }
+    public int getID() { return ID;}
+
+    public void setID(int ID) { this.ID = ID; }
 
     public String getName() {
         return Name;
@@ -67,11 +72,11 @@ public class Patient {
         this.patronum = patronum;
     }
 
-    public String getAMKA() {
+    public int getAMKA() {
         return AMKA;
     }
 
-    public void setAMKA(String AMKA) {
+    public void setAMKA(int AMKA) {
         this.AMKA = AMKA;
     }
 }
