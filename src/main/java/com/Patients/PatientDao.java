@@ -42,4 +42,33 @@ public class PatientDao {
         return this.patients.get(tempkey);
     }
 
+    public void delPatientbyAMKA(int AMKA)
+    {
+
+
+        for (Map.Entry<Integer,Patient> entry : patients.entrySet()) {
+
+            if (entry.getValue().getAMKA()== AMKA) {
+                this.patients.remove(entry.getKey());
+
+            }
+        }
+
+
+
+    }
+
+
+    public void updatePatient(Patient patient)
+    {
+        Patient p = patients.get(patient.getAMKA());
+        p.setAddress(patient.getAddress());
+        p.setDisease(patient.getDisease());
+        p.setID(patient.getID());
+        p.setName(patient.getName());
+        p.setPatronum(patient.getPatronum());
+        p.setTel(patient.getTel());
+        patients.put(patient.getID(), patient);
+    }
+
 }

@@ -1,11 +1,10 @@
 package com.Patients;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
+import java.awt.*;
 import java.util.Collection;
 
 @RestController
@@ -25,4 +24,20 @@ public class PatientsRESTController {
     {
         return getallPatientsCont.getPatientbyAMKA(AMKA);
     }
+
+    @RequestMapping(value="/{AMKA}",method = RequestMethod.DELETE)
+    public void delPatientbyAMKA(@PathVariable("AMKA") int AMKA)
+    {
+        getallPatientsCont.delPatientbyAMKA(AMKA);
+
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void updatePatient(@RequestBody Patient patient)
+    {
+        getallPatientsCont.updatePatient(patient);
+
+    }
+
+
 }
