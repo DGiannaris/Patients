@@ -39,5 +39,12 @@ public class PatientsRESTController {
 
     }
 
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void insertPatient(@RequestBody Patient patient)
+    {
+        getallPatientsCont.insertPatient(patient);
+
+    }
+
 
 }

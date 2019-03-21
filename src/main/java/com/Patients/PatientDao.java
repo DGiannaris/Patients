@@ -61,14 +61,23 @@ public class PatientDao {
 
     public void updatePatient(Patient patient)
     {
-        Patient p = patients.get(patient.getAMKA());
+
+        Patient p = patients.get(patient.getID());
         p.setAddress(patient.getAddress());
         p.setDisease(patient.getDisease());
-        p.setID(patient.getID());
+        p.setAMKA(patient.getAMKA());
+       // p.setID(patient.getID());
         p.setName(patient.getName());
         p.setPatronum(patient.getPatronum());
         p.setTel(patient.getTel());
         patients.put(patient.getID(), patient);
+    }
+
+    public void insertPatient(Patient patient)
+    {
+
+        this.patients.put(patient.getID(),patient);
+
     }
 
 }
